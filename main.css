@@ -1,0 +1,51 @@
+:root{
+    --max-length: 860px;    
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1 {
+    text-align: center;
+}
+button{
+    margin: 0 15px;
+    font-size: 33px;
+}
+
+.content_container {
+    position: relative;
+    height: 100vh;
+    background-color: teal;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+.cells {
+    border: 2px solid black;
+    height: var(--max-length);
+    max-height: var(--max-length);
+    height: var(--max-length);
+    max-width: var(--max-length);
+    margin: auto
+}
+.cell{
+    padding: 1em;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.buttons{
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    background-color: thistle   ;
+    margin: auto;
+    justify-content: center;
+}
+
