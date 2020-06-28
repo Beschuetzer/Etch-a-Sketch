@@ -8,41 +8,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,600&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <h1 class="title">Etch-a-Sketch</h1>
-    <div class="left-side">
-        <h2 id="options-title">Options:</h2>
-        <div class="option-item">
+    <h1 class="titles">Etch-a-Sketch</h1>
+    <div class="left-side sides">
+        <h2 class="titles">Options:</h2>
+        <div class="side-item">
             <p class="p_draw">Draw:</p>
             <p class="p_draw">Hold 'd' and Hover Over a Square</p>
         </div>
-        <div class="option-item">
+        <div class="side-item">
             <p class="p_draw">Erase:</p>
             <p class="p_draw">Hold 'e' and Hover Over a Square</p>
         </div>
-        <div class="option-item">
+        <div class="side-item">
             <p class="p_draw">Reset:</p>
             <p class="p_draw">Press 'r'</p>
         </div>
-        <div class="option-item">
+        <div class="side-item">
             <p class="p_draw">Start:</p>
             <p class="p_draw">Press 's'</p>
         </div>
-        <div class="option-item">
+        <div class="side-item">
             <p class="p_draw">Save:</p>
             <p class="p_draw">Press 'v'</p>
         </div>
-        <div class="option-item">
+        <div class="side-item">
             <p class="p_draw">Toggle Borders:</p>
             <p class="p_draw">Press 't'</p>
         </div>
     </div>
-    <div id="cells" class="cells">
+    <div class="cells-border">
+        <div id="cells" class="cells"></div>
     </div>
     <div class="buttons">
         <button id="btn_start">Start</button>
         <button id="btn_reset">Reset</button>
         <button id="btn_save">Save</button>
-        <button id="btn_toggle">Toggle Border</button>
+        <button id="btn_toggle">Toggle Borders</button>
+    </div>
+    <div class="right-side sides">
+        <h2 class="titles">Quote:</h2>
+        <p class="side-item">"I call it the Etch-a-Sketch life.  Every few years, you should shake that thing up."</p>
+        <p class="side-item">-John Tesh</p>
     </div>
 </body>
 </html>

@@ -5,23 +5,35 @@
     --grid-rows: 1;
     --margin_default: 5px;
     --font_largest: 30px;
-    --font_color1:  rgba(255, 255, 255, 0.750);
+    --font_color1:  rgba(255, 255, 255, calc(var(--gradient-alpha)/1.25));
+    --font_color2:  rgba(0, 0, 0, calc(var(--gradient-alpha)/1.25));
+    --gradient-color1:  rgba(170, 3, 170, var(--gradient-alpha));
+    --gradient-color2:  rgba(42, 42, 207, var(--gradient-alpha));
+    --gradient-alpha: 0.999;
+    --button-border-color: rgba(0, 0, 0,  calc(var(--gradient-alpha)/1.25));
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-button, h1, h2,p {
+button, h2,p {
     font-family: 'Poppins';
     color: white
 }
 h1 {
+    text-decoration: underline;
     text-align: center;
-    font-size:var(--header-height);
-    /* grid-row: 1;
-    grid-column: 2 ; */
+    font-size:var(--header-height) !important;
+    font-weight: 900;
     grid-area: h;
+    background: linear-gradient(45deg,var(--gradient-color1), var(--gradient-color2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+h2{
+    font-weight: 900;
 }
 html{
      background-image: url(./adventure-astronomy-constellation-dawn-372101.jpg);
@@ -43,21 +55,35 @@ body{
 button{
     margin: var(--margin_default);
     font-size: var(--font_largest);
-    background: black;
-    padding: calc(var(--margin_default));
+    padding: calc(var(--margin_default)*1.5);
+    /* This part is used to create the button effect */
+    color: var(--font_color2);
+    border: 1px solid var(--gradient-color2);
+    background: linear-gradient(to right, var(--gradient-color2) 50%, var(--gradient-color1) 50%);
+    background-size: 200% 100%;
+    background-position: right top;
+    transition: all 1s ease;
+}
+button:hover{
+    cursor: pointer;
+    background-position: left top;
     color: var(--font_color1);
-    border: 1px solid var(--font_color1);
+    border: 1px solid var(--gradient-color1);
+
 }
 .activated{
     background-color: black;
 }
-
+.cells-border{
+    border: 5px solid white;
+    border-radius: calc(var(--margin_default)*2);
+}
 .cells {
     grid-area: c;
     /* grid-row: 1;
     grid-column: 2; */
     border: 2.5px solid black;
-    background-color: rgba(141, 9, 90, 0.63);
+    background-color: rgba(141, 9, 90, 0.342);
     height: var(--max-length);
     max-height: var(--max-length);
     width: var(--max-length);
@@ -85,31 +111,44 @@ button{
     margin: auto;
     justify-content: center;
 }
-.left-side{
+.sides{
     position: relative;
-    grid-area: l;
     max-height: 100%;
-    width: 100%;
+    width: 80%;
     max-width: 100%;
     text-align: center;
     vertical-align: middle;
 }
-    .option-item {
+.left-side{
+    grid-area: l;
+}
+    .side-item {
         display: flex;
         justify-content: center;
         align-content: center;
         font-size: calc(var(--font_largest)/1.5);
         margin: calc(var(--margin_default)*2) 0;
     }
-    .option-item :nth-child(n+2) {
+    .side-item :nth-child(n+2) {
         text-decoration: underline;
     }
-    #options-title{
+    .titles{
         font-size: 400%;
+        font-family: 'Courier New', Courier, monospace;
+
     }
-    .option-item p {
+    .side-item p {
         margin: 0 0 0 var(--margin_default);
     }
+
+.right-side{
+    grid-area: r;
+    position: relative;
+    bottom: 65px;
+}
+.right-side :nth-child(n+1){
+    color: var(--font_color2);
+}
 
 #canvas{
     background-color: yellow;
