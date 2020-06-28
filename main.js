@@ -12,21 +12,34 @@ let mincells_per_side = 16;
 let maxcells_per_side = 110;
 let showBorder = true;
 let mode = 'mouseover';
-let cells_per_side = 16, cntrl_pressed = optionsEnum.Nothing;
+let cells_per_side = mincells_per_side + 1, cntrl_pressed = optionsEnum.Nothing;
 
 const btn_start = document.getElementById('btn_start');
 const btn_reset = document.getElementById('btn_reset');
 const btn_save = document.getElementById('btn_save');
 const btn_toggle = document.getElementById('btn_toggle');
 const cells = document.getElementById('cells');
-const maxLength = getComputedStyle(document.documentElement).getPropertyValue('--max-length')
+const maxLength = getComputedStyle(document.documentElement).getPropertyValue('--max-length');
+const gradientColor1 = getComputedStyle(document.documentElement).getPropertyValue('--gradient-color1');
+const gradientColor2 = getComputedStyle(document.documentElement).getPropertyValue('--gradient-color2');
 
-btn_reset.addEventListener('click', reset);
+
 window.addEventListener('keypress', keyPressHandler);
 window.addEventListener('keyup', keyPressHandler);
 btn_start.addEventListener('click', start);
 btn_save.addEventListener('click', saveSketch);
 btn_toggle.addEventListener('click', toggleBorder);
+btn_reset.addEventListener('click', reset);
+
+btn_start.addEventListener('mouseover', changeContentBorder);
+btn_save.addEventListener('mouseover', changeContentBorder);
+btn_toggle.addEventListener('mouseover', changeContentBorder);
+btn_reset.addEventListener('mouseover', changeContentBorder);
+
+btn_start.addEventListener('mouseleave', changeContentBorder);
+btn_save.addEventListener('mouseleave', changeContentBorder);
+btn_toggle.addEventListener('mouseleave', changeContentBorder);
+btn_reset.addEventListener('mouseleave', changeContentBorder);
 
 function changeBackground(e){
     console.log(e);
@@ -71,6 +84,7 @@ function makeCells(rows, cols) {
         cell.addEventListener(mode, changeBackground);
         //cell.textContent = (c + 1);
         cell.id = `cell ${c+1}`;
+        cells.appendChild(cell).className = "cell";
         cells.appendChild(cell).className = "cell-border";
     };
 }
@@ -187,6 +201,19 @@ function createHtmlElement (type, numberOfChildren = null, typeOfChildren = null
     }
     else{
         alert("No children");
+    }
+}
+
+function changeContentBorder(e){
+    const cells_border = document.getElementById('cells-border');
+    console.log(cells_border);
+    if (e.type == 'mouseover') {
+        cells_border.style.setProperty('border-color', 'black');
+        //cells.style.setProperty('background-color', gradientColor2)
+    } 
+    else {
+        cells_border.style.setProperty('border-color', 'white');
+        //cells.style.setProperty('background-color', gradientColor1)
     }
 }
 makeGrid(cells_per_side,cells_per_side);
