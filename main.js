@@ -7,16 +7,6 @@ const optionsEnum = {
     Start: 's',
     Toggle: 't',
 }
-const optionsEnumNames = {
-    Draw: 'Draw',
-    Erase: 'Erase',
-    Nothing: 'nothing', 
-    Reset: 'Reset',
-    Save: 'Save',
-    Start: 'Start',
-    Toggle: 'Toggle',
-}
-let options = [optionsEnum.Draw, optionsEnum.Erase, optionsEnum.Nothing, optionsEnum.Reset, optionsEnum.Save, optionsEnum.Start, optionsEnum.Toggle]
 
 let mincells_per_side = 16;
 let maxcells_per_side = 110;
@@ -139,6 +129,9 @@ function keyPressHandler(e){
         else if (e.key.toLowerCase() == optionsEnum.Erase) {
             cntrl_pressed = optionsEnum.Erase;
         }
+        else if (e.key.toLowerCase() == optionsEnum.Toggle) {
+            toggleBorder();
+        }
     }
     else if (e.type.toLowerCase() == 'keyup'){
         if (e.key.toLowerCase() == optionsEnum.Draw) {
@@ -196,7 +189,6 @@ function createHtmlElement (type, numberOfChildren = null, typeOfChildren = null
         alert("No children");
     }
 }
-
 makeGrid(cells_per_side,cells_per_side);
 //populateOptions();
 
