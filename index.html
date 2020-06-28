@@ -4,33 +4,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,600&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <h1 class="title">Etch-a-Sketch</h1>
-    <div class="content_container">
-        <div id="cells" class="cells">
-            <!-- <div id="cell1" class="cell"></div>
-            <div id="cell2" class="cell"></div>
-            <div id="cell3" class="cell"></div>
-            <div id="cell4" class="cell"></div>
-            <div id="cell5" class="cell"></div>
-            <div id="cell6" class="cell"></div>
-            <div id="cell7" class="cell"></div>
-            <div id="cell8" class="cell"></div>
-            <div id="cell9" class="cell"></div>
-            <div id="cell10" class="cell"></div>
-            <div id="cell11" class="cell"></div>
-            <div id="cell12" class="cell"></div>
-            <div id="cell13" class="cell"></div>
-            <div id="cell14" class="cell"></div>
-            <div id="cell15" class="cell"></div>
-            <div id="cell16" class="cell"></div> -->
+    <div class="left-side">
+        <h2 id="options-title">Options:</h2>
+        <div class="option-item">
+            <p class="p_draw">Draw:</p>
+            <p class="p_draw">Hold 'd' and Hover Over a Square</p>
         </div>
-        <div class="buttons">
-            <button id="btn_start">Start</button>
-            <button id="btn_reset">Reset</button>
+        <div class="option-item">
+            <p class="p_draw">Erase:</p>
+            <p class="p_draw">Hold 'e' and Hover Over a Square</p>
         </div>
+        <div class="option-item">
+            <p class="p_draw">Reset:</p>
+            <p class="p_draw">Press 'r'</p>
+        </div>
+        <div class="option-item">
+            <p class="p_draw">Start:</p>
+            <p class="p_draw">Press 's'</p>
+        </div>
+           
+    </div>
+    <div id="cells" class="cells">
+    </div>
+    <div class="buttons">
+        <button id="btn_start">Start</button>
+        <button id="btn_reset">Reset</button>
+        <button id="btn_save">Save</button>
+        <button id="btn_toggle">Toggle Border</button>
     </div>
 </body>
 </html>
 <script src="./main.js"></script>
+<!-- <canvas id="canvas" height="860" width="860"></canvas> -->

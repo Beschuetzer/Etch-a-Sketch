@@ -1,51 +1,117 @@
 :root{
-    --max-length: 860px;    
+    --max-length: 800px;    
+    --header-height:  calc(var(--max-length)/10);
     --grid-cols: 1;
     --grid-rows: 1;
+    --margin_default: 5px;
+    --font_largest: 30px;
+    --font_color1:  rgba(255, 255, 255, 0.750);
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+button, h1, h2,p {
+    font-family: 'Poppins';
+    color: white
+}
 h1 {
     text-align: center;
+    font-size:var(--header-height);
+    /* grid-row: 1;
+    grid-column: 2 ; */
+    grid-area: h;
+}
+html{
+     background-image: url(./adventure-astronomy-constellation-dawn-372101.jpg);
+}
+body{
+    display: grid;
+    width:100%;
+    height:100%;
+    /* grid-template-columns: 1fr var(--max-length) 1fr;
+    grid-template-rows: 80px 1fr; */
+    grid-template: 
+                    "h h h" var(--header-height)
+                    "l c r" 1fr
+                    "b b b" var(--header-height)
+                    / 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
 button{
-    margin: 0 15px;
-    font-size: 33px;
+    margin: var(--margin_default);
+    font-size: var(--font_largest);
+    background: black;
+    padding: calc(var(--margin_default));
+    color: var(--font_color1);
+    border: 1px solid var(--font_color1);
+}
+.activated{
+    background-color: black;
 }
 
-.content_container {
-    position: relative;
-    height: 100vh;
-    background-color: teal;
-}
 .cells {
-    border: 2px solid black;
+    grid-area: c;
+    /* grid-row: 1;
+    grid-column: 2; */
+    border: 2.5px solid black;
+    background-color: rgba(141, 9, 90, 0.63);
     height: var(--max-length);
     max-height: var(--max-length);
-    height: var(--max-length);
+    width: var(--max-length);
     max-width: var(--max-length);
     margin: auto;
     display: grid;
-    grid-gap: 1em;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
-    --grid-cols: 1;
-    --grid-rows: 1;
+    grid-template-rows: repeat(var(--grid-rows), minmax(0, 1fr));
+    grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
 }
-.cell{
-    padding: 1em;
-    border: 1px solid #ddd;
-    text-align: center;
+.cells :nth-child(n+1){
+    min-width: 0;
+}
+.cell-border{
+    border: 1px solid rgba(221, 221, 221, 0.507);
+    min-width: 0;
+}
+.cell-borderless{
+    border: none;
 }
 .buttons{
+    grid-area: b;
     display: flex;
     width: 100%;
     max-width: 100%;
-    background-color: thistle   ;
     margin: auto;
     justify-content: center;
 }
+.left-side{
+    position: relative;
+    grid-area: l;
+    max-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+    .option-item {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-size: calc(var(--font_largest)/1.5);
+        margin: calc(var(--margin_default)*2) 0;
+    }
+    .option-item :nth-child(n+2) {
+        text-decoration: underline;
+    }
+    #options-title{
+        font-size: 400%;
+    }
+    .option-item p {
+        margin: 0 0 0 var(--margin_default);
+    }
 
+#canvas{
+    background-color: yellow;
+    visibility: hidden;
+}
