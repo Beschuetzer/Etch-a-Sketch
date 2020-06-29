@@ -11,7 +11,8 @@
     --gradient-color2:  rgba(42, 42, 207, var(--gradient-alpha));
     --gradient-alpha: 0.999;
     --button-border-color: rgba(0, 0, 0,  calc(var(--gradient-alpha)/1.25));
-    --cell-background-color: var(--gradient-color2);
+    --cell-background-color: rgba(255, 255, 255, 0.322);
+    --cell-background-color-activated: var(--font_color2);
 }
 *{
     margin: 0;
@@ -59,9 +60,9 @@ button{
     font-family: 'Piedra', cursive;
     padding: calc(var(--margin_default)*1.5);
     /* This part is used to create the button effect */
-    color: var(--font_color2);
+    color: calc(var(--font_color2));
     border: 1px solid var(--gradient-color2);
-    background: linear-gradient(to right, var(--gradient-color2) 50%, var(--gradient-color1) 50%);
+    background: linear-gradient(to right, calc(var(--gradient-color2)/4) 50%, var(--gradient-color1) 50%);
     background-size: 200% 100%;
     background-position: right top;
     transition: all 1s ease;
@@ -73,10 +74,10 @@ button:hover{
     border: 1px solid var(--gradient-color1);
 }
 .activated{
-    background-color: var(--cell-background-color);
+    background-color: var(--cell-background-color-activated);
 }
 .cells-border{
-    border: 5px solid var(--font_color1);
+    border: calc(var(--margin_default)) solid rgba(78, 78, 78, 0.596);
     /* border-top: 5px dashed rgba(0, 0, 0, 0.479);
     border-left: 5px dashed var(--gradient-color1);
     border-bottom: 5px dashed var(--gradient-color2);
@@ -87,8 +88,8 @@ button:hover{
     grid-area: c;
     /* grid-row: 1;
     grid-column: 2; */
-    border: 2.5px solid var(--font_color2);
-    background-color: rgba(0, 0, 0, 0.76);
+    border: calc(var(--margin_default)*2) solid var(--font_color2);
+    background-color: rgba(0, 0, 0, 0.212);
     height: var(--max-length);
     max-height: var(--max-length);
     width: var(--max-length);
@@ -105,10 +106,7 @@ button:hover{
     color: white;
 }
 .cell-border{
-    border-left: 1px dashed linear-gradient(var(--gradient-color1), var(--gradient-color2));
-    border-right: 1px solid var(--gradient-color1);
-    border-top: 1px solid var(--gradient-color1);
-    border-bottom: 1px solid var(--gradient-color1);
+    border: .5px dashed var(--cell-background-color);
     min-width: 0;
 }
 .cell-borderless{
