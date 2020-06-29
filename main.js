@@ -208,11 +208,11 @@ function changeContentBorder(e){
     const cells_border = document.getElementById('cells-border');
     console.log(cells_border);
     if (e.type == 'mouseover') {
-        cells_border.style.setProperty('border-color', 'black');
+        //cells_border.style.setProperty('border-color', 'black');
         //cells.style.setProperty('background-color', gradientColor2)
     } 
     else {
-        cells_border.style.setProperty('border-color', 'white');
+        //cells_border.style.setProperty('border-color', 'white');
         //cells.style.setProperty('background-color', gradientColor1)
     }
 }

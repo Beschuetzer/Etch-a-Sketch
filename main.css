@@ -1,18 +1,20 @@
 :root{
-    --max-length: 800px;    
+    --max-length: 800px;
     --header-height:  calc(var(--max-length)/10);
     --grid-cols: 1;
     --grid-rows: 1;
     --margin_default: 5px;
     --font_largest: 30px;
-    --font_color1:  rgba(255, 255, 255, calc(var(--gradient-alpha)/1.25));
-    --font_color2:  rgba(0, 0, 0, calc(var(--gradient-alpha)/1.25));
-    --gradient-color1:  rgba(170, 3, 170, var(--gradient-alpha));
-    --gradient-color2:  rgba(42, 42, 207, var(--gradient-alpha));
-    --gradient-alpha: 0.999;
+    --font_color1:  rgba(255, 255, 255);
+    --font_color2:  rgba(0, 0, 0);
+    --gradient-color1-adjustable: 170, 3, 170;
+    --gradient-color1:  rgb(170, 3, 170);
+    --gradient-color2-adjustable: 42, 42, 207;
+    --gradient-color2:  rgb(42, 42, 207);
+    --gradient-alpha: 1;
     --button-border-color: rgba(0, 0, 0,  calc(var(--gradient-alpha)/1.25));
-    --cell-background-color: rgba(255, 255, 255, 0.322);
-    --cell-background-color-activated: var(--font_color2);
+    --cell-background-color: rgba(255, 255, 255, 0.527);
+    --cell-background-color-activated: white;
 }
 *{
     margin: 0;
@@ -38,7 +40,7 @@ h2{
     font-weight: 900;
 }
 html{
-     background: url(./adventure-astronomy-constellation-dawn-372101.jpg) 0% 4.55%;
+     background: url(./adventure-astronomy-constellation-dawn-372101.jpg) 0% 4.8%;
 }
 body{
     display: grid;
@@ -46,7 +48,7 @@ body{
     height:100%;
     /* grid-template-columns: 1fr var(--max-length) 1fr;
     grid-template-rows: 80px 1fr; */
-    grid-template: 
+    grid-template:
                     "h h h" var(--header-height)
                     "l c r" 1fr
                     "b b b" var(--header-height)
@@ -77,18 +79,18 @@ button:hover{
     background-color: var(--cell-background-color-activated);
 }
 .cells-border{
-    border: calc(var(--margin_default)) solid rgba(78, 78, 78, 0.596);
+    border: 1px solid var(--cell-background-color); */
+    background: linear-gradient(45deg, rgba(var(--gradient-color1-adjustable), .5), rgba(var(--gradient-color2-adjustable), .5));
     /* border-top: 5px dashed rgba(0, 0, 0, 0.479);
     border-left: 5px dashed var(--gradient-color1);
     border-bottom: 5px dashed var(--gradient-color2);
     border-right: 5px dashed var(--gradient-color1); */
-    border-radius: calc(var(--margin_default)*2);
+    /* border-radius: calc(var(--margin_default)*2); */
 }
 .cells {
     grid-area: c;
     /* grid-row: 1;
     grid-column: 2; */
-    border: calc(var(--margin_default)*2) solid var(--font_color2);
     background-color: rgba(0, 0, 0, 0.212);
     height: var(--max-length);
     max-height: var(--max-length);
