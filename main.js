@@ -45,10 +45,10 @@ function changeBackground(e){
     console.log(e);
     // alert(cntrl_pressed);
     if (cntrl_pressed == optionsEnum.Draw) {
-        e.originalTarget.classList.add('activated');
+        e.target.classList.add('activated');
     }
     else if (cntrl_pressed == optionsEnum.Erase) {
-        e.originalTarget.classList.remove('activated');
+        e.target.classList.remove('activated');
     }
 }
 
